@@ -12,7 +12,8 @@
         <title>Image Browser :: v1.0</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="themes/standard/bootstrap/stylesheets/bootstrap.css" rel="stylesheet">
+        <!--<link href="themes/standard/bootstrap/stylesheets/bootstrap.css" rel="stylesheet">-->
+        <link href="themes/standard/bootstrap/stylesheets/style.min.css" rel="stylesheet">
 
     </head>
 
@@ -58,13 +59,28 @@
             </div>
             <div class="home-button-wrap">
                 <a class="navbar-brand" href="">Image Browser</a>
+                <!--            <div class="BrowseChapters">
+                                <ul class="nav nav-sidebar dropdown-menu-chapters"></ul>
+                            </div>-->
+
+                <div class="btn-group navigationButtonWrap">
+                    <button class="btn btn-default btn-lg dropdown-toggle navigationButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Navigate <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">First page</a></li>
+                        <li><a href="#">Last page</a></li>
+                        <li><a href="#">Previous chapter</a></li>
+                        <li><a href="#">Next chapter</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="BrowseChapters">
-                <ul class="nav nav-sidebar dropdown-menu-chapters"></ul>
-            </div>
+
         </div>
 
         <div class="triggerWrap right hidden col-sm-2">
+
+
             <nav>
                 <ul class="pager">
                     <li>
@@ -91,9 +107,6 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="themes/standard/bootstrap/javascripts/jquery.min.js"></script>
-        <script src="themes/standard/bootstrap/javascripts/bootstrap.min.js"></script>
-        <script src="themes/standard/js/jquery.scrollview.js"></script>
-        <script src="themes/standard/js/imageBrowser.js"></script>
+        <script src="themes/min/js/script.js"></script>
     </body>
 </html>

@@ -18,8 +18,8 @@ $.imageBrowser = function (options) {
         settings.currentHash = window.location.hash;
         settings.currentHashPieces = settings.currentHash.split("|");
 
-
-        loadChapterMap();
+        // This feature has been deprecated
+        // loadChapterMap();
 
 
         $('body').on('click', '.nextTrigger,.prevTrigger,.imageBrowserTrigger', function () {
