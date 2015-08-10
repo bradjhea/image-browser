@@ -3,4 +3,4 @@ project-todo.txt
 backend/config.php
 nbproject/
 themes/node_modules/*
-#backend/map.json
+backend/map.json
