@@ -1,5 +1,7 @@
 <?php
 
+//include './vendor/autoload.php';
+//require __DIR__ . '/vendor/autoload.php';
 include './classes/errorHandler.php';
 include './classes/structureHandler.php';
 include './classes/structureReader.php';
@@ -23,6 +25,7 @@ class router {
     }
 
     public function setSettings() {
+        
         $this->settings = new applicationSettings();
     }
 

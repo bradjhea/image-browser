@@ -39,7 +39,12 @@ $.imageBrowser = function (options) {
             getPreviewContent();
         }
 
+        // listens for select key strokes
         onKeyPressListener();
+
+        //findFirstPage
+        //FirstPageListener();
+
     };
 
     var getPreviewContent = function () {
@@ -119,6 +124,10 @@ $.imageBrowser = function (options) {
                 $(".completeBar").css({width: percentComplete + "%"});
                 $(".prevTrigger").attr("href", theResponse.previousHash);
                 $(".nextTrigger").attr("href", theResponse.nextHash);
+                $(".findFirstPage").attr("href", theResponse.firstPageHash);
+                $(".findLastPage").attr("href", theResponse.lastPageHash);
+                $(".findPreviousChapter").attr("href", theResponse.chapterPrevious);
+                $(".findNextChapter").attr("href", theResponse.chapterNext);
 
                 $(".mainBody .row").fadeOut(250, function () {
                     window.scrollTo(0, 0);
@@ -153,6 +162,7 @@ $.imageBrowser = function (options) {
         };
 
     };
+
 
     init();
 

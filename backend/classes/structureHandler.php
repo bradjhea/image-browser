@@ -160,10 +160,14 @@ class structureHandler {
     public function setFetchedImage() {
 
         $imageMap = array(
-            "previousHash" => "",
-            "currentImage" => "",
-            "nextHash"     => "",
-            "chapterCount" => 0
+            "firstPageHash"   => "",
+            "previousHash"    => "",
+            "currentImage"    => "",
+            "nextHash"        => "",
+            "lastPageHash"    => "",
+            "chapterCount"    => 0,
+            "chapterPrevious" => "",
+            "chapterNext"     => "",
         );
 
         if (!$this->isImageSearchable) {
@@ -178,12 +182,31 @@ class structureHandler {
             return;
         }
 
-        $previousHash = "";
+        $previousHash        = "";
+        $previousChapterHash = "";
 
         // iterate through sub directory
         foreach ($this->folderStructure->{$this->valueFolder} as $keySubFolder => $subFolder) {
 
+            // $previousChapterHash = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, "0");
+            // echo 'Key sub-folder: ' . $keySubFolder . PHP_EOL;
+
+            if ($imageMap["chapterPrevious"] && !$imageMap["chapterNext"]) {
+                $imageMap["chapterNext"] = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, "0");
+            }
+
+            //$previousChapterHash = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, "0");
+
             foreach ($subFolder as $subSubKey => $subSubFolder) {
+
+                // create previous chapter here
+                if ($this->valueSubFolder == $keySubFolder && !$imageMap["chapterPrevious"]) {
+                    $imageMap["chapterPrevious"] = $previousChapterHash;
+                }
+
+                if ($this->valueSubFolder == $keySubFolder && !$imageMap["firstPageHash"]) {
+                    $imageMap["firstPageHash"] = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, $subSubKey);
+                }
 
                 if ($imageMap["currentImage"] !== "" && $imageMap["nextHash"] == "") {
                     $imageMap["nextHash"] = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, $subSubKey);
@@ -198,7 +221,15 @@ class structureHandler {
                     $imageMap["previousHash"] = $previousHash;
                 }
 
-                $previousHash = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, $subSubKey);
+                if ($this->valueSubFolder == $keySubFolder) {
+                    $imageMap["lastPageHash"] = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, $subSubKey);
+                }
+
+                $previousHash        = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, $subSubKey);
+                $previousChapterHash = $this->getLinkHash($this->valueAction, $this->valueFolder, $keySubFolder, "0");
+
+                // create next chapter here
+                // if previous chapter has been set, then set next
             }
         }
 
