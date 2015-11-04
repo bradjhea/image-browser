@@ -42,7 +42,7 @@ class structureHandler {
         if (file_exists($folderTarget)) {
             $this->setDirectoryStructure($folderTarget);
         } else {
-            echo "Could not find folder!?";
+            echo "Could not find folder: " . $folderTarget;
         }
 
         $this->setFetchedImage();
