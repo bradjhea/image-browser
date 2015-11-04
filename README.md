@@ -3,6 +3,26 @@
 This application is used to traverse through folders and load their respective
 images within.
 
+A directory should be setup within the root folder before any other work is 
+carried out
+
+Once an image directory has been created the application needs to know the
+location of the images directory here is an example of a config file ...
+
+class config  {
+
+    static function Create( $settingsObject) {
+      return new self( $settingsObject);
+    }
+
+    public function __construct( $settingsObject ) {
+        $settingsObject->folderTarget = "D:/xampp.5.4.27/htdocs/workbench/imageBrowser/images/";
+    }
+
+}
+
+this file should be created within the folder backend/
+
 Below is an example of the folder structure:
 
 - images/
