@@ -39,6 +39,9 @@ class structureHandler {
 
         // if image is searchable generate folder structure
         //if ($this->isImageSearchable && file_exists($folderTarget)) {
+        
+        
+        
         if (file_exists($folderTarget)) {
             $this->setDirectoryStructure($folderTarget);
         } else {
