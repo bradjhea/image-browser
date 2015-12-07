@@ -9,6 +9,8 @@ carried out
 Once an image directory has been created the application needs to know the
 location of the images directory here is an example of a config file ...
 
+<code>
+
 class config  {
 
     static function Create( $settingsObject) {
@@ -16,10 +18,12 @@ class config  {
     }
 
     public function __construct( $settingsObject ) {
-        $settingsObject->folderTarget = "D:/xampp.5.4.27/htdocs/workbench/imageBrowser/images/";
+        $settingsObject->folderTarget = "/images/";
     }
 
 }
+
+</code>
 
 this file should be created within the folder backend/
 
