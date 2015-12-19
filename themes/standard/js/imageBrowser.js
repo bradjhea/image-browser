@@ -54,8 +54,8 @@ $.imageBrowser = function (options) {
             var previewContentFinal = "";
 
 //            theResponse = $.parseJSON(theResponse);
-//            theResponse = $.parseJSON(theResponse);
-            console.log(theResponse);
+//            console.log(theResponse);
+            theResponse = $.parseJSON(theResponse);
 
             $.each(theResponse, function (key, val) {
 
