@@ -24,7 +24,7 @@ $.imageBrowser = function (options) {
 
         $('body').on('click', '.nextTrigger,.prevTrigger,.imageBrowserTrigger', function () {
 
-            $('.triggerWrap').removeClass('hidden');
+            $('.triggerWrap,.navigationButtonWrap').removeClass('hidden');
 
             $(this).hide();
             loadPageImage($(this).attr("href"));
@@ -100,20 +100,26 @@ $.imageBrowser = function (options) {
     };
 
     var loadPageImage = function (pagesHash) {
+        
 
         if (!isViewingPage) {
             return false;
         }
+        
+        $("<div />").addClass('overlay').html("Searching").appendTo("body");
 
         // clear body of page
         var fields = pagesHash;
         var fieldPieces = fields.split("|");
+        
+        // add overlay here
 
         // this might be unecessary
         window.location.hash = pagesHash;
         if (fieldPieces.length === 4) {
+            
 
-            $('.triggerWrap').removeClass('hidden');
+            $('.triggerWrap,.navigationButtonWrap').removeClass('hidden');           
             $(".missingImageWrap").hide();
 
             var fieldsClean = "action=" + (fieldPieces[0].replace("#", "")) + "&folder=" + fieldPieces[1] + "&sub_folder=" + fieldPieces[2] + "&index=" + fieldPieces[3];
@@ -137,9 +143,14 @@ $.imageBrowser = function (options) {
                             .attr("href", theResponse.nextHash).fadeIn();
                 });
             });
+            
+        
         } else {
             $(".missingImageWrap").show();
         }
+        
+        // remove overlay here
+        $(".overlay").remove();
 
     };
 

@@ -5638,6 +5638,13 @@ button.close {
 body {
   background-color: #333;
   min-height: 100%; }
+  body a {
+    /*
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+    */ }
 
 * {
   /*outline:1px solid red;*/ }
@@ -5748,10 +5755,27 @@ section.contentPreview {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  width: 0%; }
+  width: 0%;
+  -webkit-transition: width .375s ease-in-out;
+  -moz-transition: width .375s ease-in-out;
+  -o-transition: width .375s ease-in-out;
+  transition: width .375s ease-in-out; }
 
 .navigationButtonWrap {
   width: 100%; }
+  .navigationButtonWrap h3 {
+    color: white;
+    text-align: center;
+    margin: 5px 0; }
+  .navigationButtonWrap a.imageBrowserTrigger {
+    width: 25%;
+    display: block;
+    float: left;
+    background-color: white;
+    padding: 10px 0;
+    color: #333; }
+    .navigationButtonWrap a.imageBrowserTrigger:hover, .navigationButtonWrap a.imageBrowserTrigger:focus {
+      background-color: #efefef; }
   .navigationButtonWrap .navigationButton {
     width: 100%;
     border-radius: 0; }
@@ -5766,5 +5790,19 @@ section.contentPreview {
     .navigationButtonWrap li a {
       margin: 0;
       padding: 10px; }
+
+.tooltip-inner {
+  background-color: white;
+  color: black; }
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: white; }
+
+.overlay {
+  background-color: rgba(100, 100, 100, 0.5);
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  z-index: 9999; }
 
 /*# sourceMappingURL=bootstrap.css.map */
