@@ -20,6 +20,7 @@ class applicationSettings {
         $errorCodes = new \stdClass();
 
         $errorCodes->error_message_1 = "Error: Could not find action";
+        $errorCodes->error_message_2 = "Error: Could not find action value";
 
         $this->errorCodes = $errorCodes;
     }
