@@ -21,6 +21,7 @@ class applicationSettings {
 
         $errorCodes->error_message_1 = "Error: Could not find action";
         $errorCodes->error_message_2 = "Error: Could not find action value";
+        $errorCodes->error_message_3 = "Error: Action value not valid";
 
         $this->errorCodes = $errorCodes;
     }
